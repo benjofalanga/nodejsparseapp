@@ -1,0 +1,37 @@
+extends layout
+block content
+  h1= title 
+  
+  form(action='/' method='POST')
+    |Artist name: 
+    input(type='text' name='artist')
+    br
+    
+    input(type='submit' value='Submit')
+
+  if band && events.length>0
+    ul
+      each val in events
+        li
+          div(style="margin-top:20px;")
+        
+            span
+              b Day : #{val.day} #{val.month}
+            br
+            span
+              b Time : #{val.time}
+            br
+            span 
+              b City : #{val.city}
+            br
+            span 
+              b Price : #{val.price}
+            br
+            span  
+              b Link to ticket: 
+              a(href=val.url target="_blank" class='button') #{band} #{val.city}
+  
+  else if band && events.length==0
+    div No event match search artist #{band}
+             
+             
