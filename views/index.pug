@@ -1,6 +1,6 @@
 extends layout
 block content
-  h1= title 
+  h1= title
   
   form(action='/' method='POST')
     |Artist name: 
@@ -25,13 +25,12 @@ block content
               b City : #{val.city}
             br
             span 
-              b Price : #{val.price}
+              b Price : from #{val.price}
             br
             span  
               b Link to ticket: 
               a(href=val.url target="_blank" class='button') #{band} #{val.city}
   
   else if band && events.length==0
-    div No event match search artist #{band}
-             
+    div No event match search artist '#[bold #[i #{band}]]'             
              
